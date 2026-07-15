@@ -8,7 +8,7 @@ flowchart TB
     subgraph Common["공통 베이스 / 컨벤션 (팀 공동 자산)"]
         BAR["BaseAggregateRoot<br/>이벤트 수집(registerEvent)"]
         BQS["BaseQueryService «E, ID»<br/>제네릭 조회(pageable·id·ids)"]
-        BQC["BaseQueryController «E, ID»<br/>read 엔드포인트 → service 위임(list·get)"]
+        BQC["BaseQueryController «E, ID»<br/>read 엔드포인트 → service 위임(list·get·list(ids))"]
         EC["ErrorCode «enum»<br/>E-PREFIX-NNNN"]
         DEF["DomainEventForwarder<br/>@TransactionalEventListener(AFTER_COMMIT)"]
     end

@@ -1,6 +1,7 @@
 package dev.portfolio.inventory
 
 import dev.portfolio.base.domain.BaseAggregateRoot
+import dev.portfolio.base.domain.DomainEvent
 import dev.portfolio.base.query.BaseQueryController
 import dev.portfolio.base.query.BaseQueryService
 import org.springframework.data.domain.Page
@@ -20,7 +21,7 @@ class Stock(
     }
 }
 
-data class StockDeducted(val id: StockId, val amount: Int)
+data class StockDeducted(val id: StockId, val amount: Int) : DomainEvent
 
 class StockQueryService : BaseQueryService<Stock, StockId>() {
     override suspend fun query(pageable: Pageable): Page<Stock> = TODO("repository 위임")

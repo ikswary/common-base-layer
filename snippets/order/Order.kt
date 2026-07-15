@@ -1,6 +1,7 @@
 package dev.portfolio.order
 
 import dev.portfolio.base.domain.BaseAggregateRoot
+import dev.portfolio.base.domain.DomainEvent
 import dev.portfolio.base.query.BaseQueryController
 import dev.portfolio.base.query.BaseQueryService
 import org.springframework.data.domain.Page
@@ -20,7 +21,7 @@ class Order(
     }
 }
 
-data class OrderPlaced(val id: OrderId)
+data class OrderPlaced(val id: OrderId) : DomainEvent
 
 class OrderQueryService : BaseQueryService<Order, OrderId>() {
     override suspend fun query(pageable: Pageable): Page<Order> = TODO("repository 위임")

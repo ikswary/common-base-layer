@@ -7,5 +7,6 @@ abstract class BaseQueryController<E, ID>(
     private val service: BaseQueryService<E, ID>,
 ) {
     suspend fun list(pageable: Pageable): Page<E> = service.query(pageable)
+    suspend fun list(ids: Collection<ID>): List<E> = service.query(ids)
     suspend fun get(id: ID): E = service.query(id)
 }
